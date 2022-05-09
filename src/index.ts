@@ -1,1 +1,1 @@
-const a: any = 1;
+const a: any = '1';
