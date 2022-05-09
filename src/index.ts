@@ -1,1 +1,1 @@
-const a: any = '1';
+export const a: any = '1';

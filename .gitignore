@@ -4,3 +4,4 @@ node_modules/
 !.idea/runConfigurations
 dist
 .DS_Store
+coverage
