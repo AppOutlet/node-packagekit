@@ -1,0 +1,13 @@
+{
+  "name": "packagekit",
+  "version": "1.0.0",
+  "description": "A packageKit wrapper for node",
+  "repository": "https://github.com/app-outlet/node-packagekit",
+  "author": "Messias Junior",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
