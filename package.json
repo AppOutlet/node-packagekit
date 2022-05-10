@@ -9,15 +9,19 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
+        "prebuild": "rimraf dist",
         "build": "tsc",
         "lint": "eslint src/**/*.ts --fix",
         "format": "prettier --write .",
         "test": "jest",
         "test:coverage": "jest --coverage",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "start": "ts-node src/"
     },
     "dependencies": {
-        "dbus-native": "^0.4.0"
+        "dbus-native": "^0.4.0",
+        "reflect-metadata": "^0.1.13",
+        "tsyringe": "^4.6.0"
     },
     "devDependencies": {
         "@types/jest": "^27.5.0",
@@ -29,7 +33,9 @@
         "eslint-plugin-import": "^2.25.2",
         "jest": "^28.1.0",
         "prettier": "^2.6.2",
+        "rimraf": "^3.0.2",
         "ts-jest": "^28.0.2",
+        "ts-node": "^10.7.0",
         "typescript": "^4.6.4"
     }
 }
