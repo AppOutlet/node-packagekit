@@ -4,11 +4,17 @@ import { InterfaceProvider } from './interface.provider';
 
 const interfaceProvider = container.resolve(InterfaceProvider);
 
-interfaceProvider
-    .getPackageKitInterface()
-    .then((packageKit) => {
-        console.log('Success', packageKit);
-    })
-    .catch((err) => {
-        console.error(err);
-    });
+async function teste() {
+    try {
+        console.log('getting interface');
+        const e = await interfaceProvider.getPackageKitInterface();
+        const t = e.createTransaction();
+        console.log('received', t);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+teste().then();
+
+setTimeout(()=>{}, 10000)
