@@ -1,20 +1,15 @@
-import 'reflect-metadata';
-import { container } from 'tsyringe';
 import { InterfaceProvider } from './interface.provider';
-
-const interfaceProvider = container.resolve(InterfaceProvider);
+import { PackageKit } from './packagekit';
 
 async function teste() {
     try {
         console.log('getting interface');
-        const e = await interfaceProvider.getPackageKitInterface();
-        const t = e.createTransaction();
-        console.log('received', t);
+        const packageKit = await PackageKit.create();
+        const transaction = await packageKit.createTransaction();
+        console.log('received', transaction);
     } catch (e) {
         console.error(e);
     }
 }
 
 teste().then();
-
-setTimeout(()=>{}, 10000)
