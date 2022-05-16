@@ -1,21 +1,12 @@
-import { PackageKit } from './packagekit';
+import 'reflect-metadata';
 import { container } from 'tsyringe';
+import { PackagekitProvider } from './packagekit.provider';
 import { TransactionProvider } from './transaction.provider';
-import { SearchFilter } from './search-filter.enum';
 
-async function teste() {
-    try {
-        console.log('getting interface');
-        const packageKit = await PackageKit.create();
-        const transactionPath = await packageKit.createTransaction();
-        const transactionProvider = container.resolve(TransactionProvider);
-        const transaction = await transactionProvider.getTransaction(
-            transactionPath
-        );
-        await transaction.cancel();
-    } catch (e) {
-        console.error(e);
-    }
+export function getPackageKitProvider(): PackagekitProvider {
+    return container.resolve(PackagekitProvider);
 }
 
-teste().then();
+export function getTransactionProvider(): TransactionProvider {
+    return container.resolve(TransactionProvider);
+}

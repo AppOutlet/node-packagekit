@@ -1,37 +1,26 @@
 import { inject, injectable } from 'tsyringe';
-import { InterfaceProvider } from './interface.provider';
-import { Transaction } from './transaction';
+import { INJECTION_TOKEN_SYSTEM_BUS } from './di/package-kit.register';
+import { MessageBus } from 'dbus-next';
+import { Transaction } from './interface/transaction.interface';
+import { PackagekitProvider } from './packagekit.provider';
 
 @injectable()
 export class TransactionProvider {
-    private transactionCache: any = {};
+    private static readonly TRANSACTION_INTERFACE_NAME =
+        'org.freedesktop.PackageKit.Transaction';
 
-    constructor(private interfaceProvider: InterfaceProvider) {}
+    constructor(@inject(INJECTION_TOKEN_SYSTEM_BUS) private bus: MessageBus) {}
 
     getTransaction(transactionPath: string): Promise<Transaction> {
-        if (this.transactionCache[transactionPath]) {
-            return Promise.resolve(this.transactionCache[transactionPath]);
-        }
-
-        return this.interfaceProvider
-            .getTransactionInterface(transactionPath)
-            .then((transactionDbus) => {
-                const transaction = new Transaction(
-                    transactionDbus,
-                    transactionPath
-                );
-                this.handleNewCreatedTransactions(transactionPath, transaction);
-                return transaction;
-            });
-    }
-
-    private handleNewCreatedTransactions(
-        transactionPath: string,
-        transaction: Transaction
-    ): void {
-        this.transactionCache[transactionPath] = transaction;
-        transaction.onDestroy.subscribe((transaction) => {
-            this.transactionCache[transaction.path] = null;
-        });
+        return this.bus
+            .getProxyObject(
+                PackagekitProvider.PACKAGE_KIT_OBJECT_NAME,
+                transactionPath
+            )
+            .then((transactionProxyObject) =>
+                transactionProxyObject.getInterface<Transaction>(
+                    TransactionProvider.TRANSACTION_INTERFACE_NAME
+                )
+            );
     }
 }

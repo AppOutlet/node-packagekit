@@ -19,7 +19,6 @@
         "start": "ts-node src/"
     },
     "dependencies": {
-        "dbus-native": "^0.4.0",
         "dbus-next": "^0.10.2",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^7.5.5",
