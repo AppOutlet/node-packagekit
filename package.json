@@ -16,7 +16,8 @@
         "test": "jest",
         "test:coverage": "jest --coverage",
         "test:watch": "jest --watch",
-        "start": "ts-node src/"
+        "start": "ts-node src/",
+        "start:internal-test": "ts-node src/internaltest"
     },
     "dependencies": {
         "dbus-next": "^0.10.2",
