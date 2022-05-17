@@ -4,6 +4,8 @@ export interface Transaction extends ClientInterface {
     Close(): Promise<void>;
 
     SearchNames(filter: number, values: string[]): Promise<void>;
+
+    GetPackages(filter: number): Promise<void>;
 }
 
 export enum TransactionSignal {
