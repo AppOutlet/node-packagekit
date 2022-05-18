@@ -23,6 +23,6 @@ $ yarn add packagekit
 ## Which methods are available?
 
 You can see which methods, signals and properties are available by seeing the roadmap tracking on docs folder.
-- [PackageKit](docs/PACKAGE_KIT_PROGRESS.MD)
+- [PackageKit](docs/PACKAGE_KIT_PROGRESS.md)
 - [PackageKit.Transaction](docs/PACKAGE_KIT_TRANSACTION_PROGRESS.md)
 
