@@ -1,15 +1,15 @@
 import { ClientInterface } from 'dbus-next';
 
 export interface Transaction extends ClientInterface {
+    GetDetails(packageIds: string[]): Promise<void>;
+
     Close(): Promise<void>;
 
     SearchNames(filter: number, values: string[]): Promise<void>;
 
     GetPackages(filter: number): Promise<void>;
-}
 
-export enum TransactionSignal {
-    PACKAGE = 'Package',
+    SearchNames(filter: number, packages: string[]): Promise<string>;
 }
 
 export enum PackageInfo {

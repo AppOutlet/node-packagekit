@@ -3,6 +3,7 @@ import { INJECTION_TOKEN_SYSTEM_BUS } from '../di/package-kit.register';
 import { MessageBus } from 'dbus-next';
 import { Transaction } from './transaction.interface';
 import { PackagekitProvider } from '../packagekit/packagekit.provider';
+import { TransactionSignals } from './transaction.signals';
 
 @injectable()
 export class TransactionProvider {
@@ -22,5 +23,9 @@ export class TransactionProvider {
                     TransactionProvider.TRANSACTION_INTERFACE_NAME
                 )
             );
+    }
+
+    getSignals(transaction: Transaction): TransactionSignals {
+        return new TransactionSignals(transaction);
     }
 }

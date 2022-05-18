@@ -8,7 +8,7 @@
 | AcceptEula         | ❌   |        
 | Cancel             | ❌   |      
 | DownloadPackages   | ❌   |
-| GetCategories      | ✅   |  
+| GetCategories      | ❌   |  
 | DependsOn          | ❌   |
 | GetDetails         | ✅   |
 | GetDetailsLocal    | ✅   |
@@ -41,7 +41,7 @@
 
 | Signals               |     |
 |-----------------------|-----|
-| Category              | ✅   |     
+| Category              | ❌   |     
 | Details               | ✅   |
 | ErrorCode             | ✅   |
 | Files                 | ❌   |

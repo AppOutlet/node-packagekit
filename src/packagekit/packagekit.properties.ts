@@ -35,7 +35,7 @@ export class PackageKitProperties {
     }
 }
 
-interface DistroId {
+export interface DistroId {
     distro: string;
     version: string;
     arch: string;
