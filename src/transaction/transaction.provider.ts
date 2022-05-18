@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
-import { INJECTION_TOKEN_SYSTEM_BUS } from './di/package-kit.register';
+import { INJECTION_TOKEN_SYSTEM_BUS } from '../di/package-kit.register';
 import { MessageBus } from 'dbus-next';
-import { Transaction } from './interface/transaction.interface';
-import { PackagekitProvider } from './packagekit.provider';
+import { Transaction } from './transaction.interface';
+import { PackagekitProvider } from '../packagekit/packagekit.provider';
 
 @injectable()
 export class TransactionProvider {

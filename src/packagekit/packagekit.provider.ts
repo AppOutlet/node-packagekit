@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
-import { INJECTION_TOKEN_SYSTEM_BUS } from './di/package-kit.register';
+import { INJECTION_TOKEN_SYSTEM_BUS } from '../di/package-kit.register';
 import { ClientInterface, MessageBus, ProxyObject } from 'dbus-next';
-import { PackageKit } from './interface/packagekit.interface';
+import { PackageKit } from './packagekit.interface';
 import { PackageKitProperties } from './packagekit.properties';
 
 @injectable()
